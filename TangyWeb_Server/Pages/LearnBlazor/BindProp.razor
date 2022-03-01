@@ -1,32 +1,39 @@
 ﻿@page "/learnBlazor/bindProp"
-@using Tangy_Models.LearnBlazorModels;
 
-<h3>BindProp</h3>
-Name: @product.Name <br />
-Active: @product.IsActive <br />
-Current Price: @product.Price <br />
-This Product is : @(product.IsActive?"Active":"InActive") <br />
-Propery Selected : @selectedProp <br />
-@if(!String.IsNullOrWhiteSpace(selectedProp))
-{
-    <p>Property Value : @product.ProductProp.FirstOrDefault(u=>u.Key == selectedProp).Value</p>
-}
-
-<br /><br />
-
-Active: <input type="checkbox" @bind-value="@product.IsActive" checked="@(product.IsActive?"checked":null)" /> <br />
-@*Both provide two way data binding*@
-Price (bind-value): <input type="number" @bind-value="@product.Price" @bind-value:event="oninput" /> <br />
-@*Price (bind): <input type="number" @bind="@product.Price" @bind:event="oninput" />*@
-Product Properties:
-<select @bind="selectedProp">
-    @foreach(Demo_ProductProp prop in product.ProductProp)
-    {
-        <option value="@prop.Key">@prop.Key</option>
-    }
-</select> <br />
-
-
+<div class="row">
+    <div class="col-6 border p-3">
+        <h3 class="text-primary">Product Playground</h3><hr />
+        <div>
+            Active: <input type="checkbox" @bind-value="@product.IsActive" checked="@(product.IsActive?"checked":null)" /> <br />
+        </div>
+        <div>
+            @*Both provide two way data binding*@
+            Price (bind-value): <input type="number" @bind-value="@product.Price" @bind-value:event="oninput" /> <br />
+            @*Price (bind): <input type="number" @bind="@product.Price" @bind:event="oninput" />*@
+        </div>
+        <div>
+            Product Properties:
+            <select @bind="selectedProp">
+                @foreach (Demo_ProductProp prop in product.ProductProp)
+                {
+                    <option value="@prop.Key">@prop.Key</option>
+                }
+            </select> <br />
+        </div>
+    </div>
+    <div class="col-6 border p-3">
+        <h3 class="text-primary">Product Summary</h3><hr />
+        Name: @product.Name <br />
+        Active: @product.IsActive <br />
+        Current Price: @product.Price <br />
+        This Product is : @(product.IsActive?"Active":"InActive") <br />
+        Propery Selected : @selectedProp <br />
+        @if (!String.IsNullOrWhiteSpace(selectedProp))
+        {
+            <p>Property Value : @product.ProductProp.FirstOrDefault(u=>u.Key == selectedProp).Value</p>
+        }
+    </div>    
+</div>
 
 
 
