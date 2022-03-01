@@ -1,7 +1,21 @@
 ﻿@page "/learnBlazor/bindProp"
 
 <h3>BindProp</h3>
+Name: @product.Name<br />
+Active: @product.IsActive<br />
+
+
+
+
+
+
+
 
 @code {
-
+    Tangy_Models.LearnBlazorModels.Demo_Product product = new()
+        {
+            Id = 1,
+            Name = "Rose Candle",
+            IsActive = true
+        };
 }
