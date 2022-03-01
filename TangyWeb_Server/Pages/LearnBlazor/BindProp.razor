@@ -4,7 +4,9 @@
 Name: @product.Name<br />
 Active: @product.IsActive<br />
 Current Price: @product.Price<br />
+This Product is : @(product.IsActive?"Active":"InActive")<br /><br />
 
+Active: <input type="checkbox" @bind-value="@product.IsActive" checked="@(product.IsActive?"checked":null)" /><br />
 @*Both provide two way data binding*@
 Price (bind-value): <input type="number" @bind-value="@product.Price" @bind-value:event="oninput" />
 @*Price (bind): <input type="number" @bind="@product.Price" @bind:event="oninput" />*@
