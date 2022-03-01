@@ -3,7 +3,11 @@
 <h3>BindProp</h3>
 Name: @product.Name<br />
 Active: @product.IsActive<br />
+Current Price: @product.Price<br />
 
+@*Both provide two way data binding*@
+Price (bind-value): <input type="number" @bind-value="@product.Price" @bind-value:event="oninput" />
+@*Price (bind): <input type="number" @bind="@product.Price" @bind:event="oninput" />*@
 
 
 
@@ -16,6 +20,7 @@ Active: @product.IsActive<br />
         {
             Id = 1,
             Name = "Rose Candle",
-            IsActive = true
+            IsActive = true,
+            Price = 10.99
         };
 }
