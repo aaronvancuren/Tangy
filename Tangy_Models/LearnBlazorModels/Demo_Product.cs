@@ -13,6 +13,6 @@ namespace Tangy_Models.LearnBlazorModels
         public double Price { get; set; }
         public bool IsActive { get; set; }
 
-        public IEnumerable<Demo_ProductProp> ProductProp { get; set; }
+        public List<Demo_ProductProp> ProductProp { get; set; }
     }
 }
