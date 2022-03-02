@@ -1,28 +1,27 @@
 ﻿@page "/learnblazor/demoproduct"
 
 <h3 class="text-success">DemoProduct</h3>
-<div class="row">
-    @foreach (Demo_Product prod in products)
-    {
-        <div class="col-6 border p-3">
-            <h3 class="text-primary">Product - @prod.Id </h3>
-            <p>Name - @prod.Name</p>
-            <p>Show Properties : <input type="checkbox" @bind-value="prod.ShowProps" checked="@(prod.ShowProps?"checked":null)" /></p>
-            @if(@prod.ShowProps is true)
-            {
-            <div>
-                @foreach (Demo_ProductProp prop in prod.ProductProp)
+<div class="border p-2 mt-2" style="background-color:azure">
+    <div class="row">
+        @foreach (Demo_Product prod in products)
+        {
+            <div class="bg-light border m-1 col-5">
+                <h4 class="text-secondary">Product - @prod.Id</h4>
+                Name - @prod.Name<br />
+                Show Properties : <input type="checkbox" @bind-value="prod.IsActive" checked="@(prod.IsActive?"checked":null)" />
+                @if (@prod.IsActive)
                 {
-                    <p value="@prop.Key">@prop.Key - @prop.Value</p>
+                    @foreach (Demo_ProductProp prop in prod.ProductProp)
+                    {
+                        <p>@prop.Key - @prop.Value</p>
+                    }
                 }
+                <br />
+                <input type="button" class="btn btn-danger" style="width:100px;" value="Delete" />
+                <input type="button" class="btn btn-success" style="width:100px;" value="Edit" />
             </div>
-            }
-            <div class="col">
-                <button>Delete</button>
-                <button>Edit</button>
-            </div>
-        </div>
-    }
+        }
+    </div>
 </div>
 
 @code {
@@ -35,7 +34,6 @@
                 Id = 1,
                 Name = "Midnight Blaze",
                 IsActive = false,
-                ShowProps = false,
                 Price = 3.99,
                 ProductProp = new()
                 {
@@ -50,7 +48,6 @@
                 Id = 2,
                 Name = "Blossom Lily",
                 IsActive = true,
-                ShowProps = true,
                 Price = 99.99,
                 ProductProp = new()
                 {
