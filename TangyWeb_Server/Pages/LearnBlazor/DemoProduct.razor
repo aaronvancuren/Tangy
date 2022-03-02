@@ -2,19 +2,27 @@
 
 <h3 class="text-success">DemoProduct</h3>
 <div class="row">
-    @foreach(Demo_Product prod in products)
+    @foreach (Demo_Product prod in products)
     {
         <div class="col-6 border p-3">
             <h3 class="text-primary">Product - @prod.Id </h3>
             <p>Name - @prod.Name</p>
-            <p>Show Properties : <input type="checkbox" @bind-value="prod.ProductProp"/> </p>
-
+            <p>Show Properties : <input type="checkbox" @bind-value="prod.ShowProps" checked="@(prod.ShowProps?"checked":null)" /></p>
+            @if(@prod.ShowProps is true)
+            {
+            <div>
+                @foreach (Demo_ProductProp prop in prod.ProductProp)
+                {
+                    <p value="@prop.Key">@prop.Key - @prop.Value</p>
+                }
+            </div>
+            }
             <div class="col">
                 <button>Delete</button>
                 <button>Edit</button>
             </div>
         </div>
-    }    
+    }
 </div>
 
 @code {
@@ -27,6 +35,7 @@
                 Id = 1,
                 Name = "Midnight Blaze",
                 IsActive = false,
+                ShowProps = false,
                 Price = 3.99,
                 ProductProp = new()
                 {
@@ -41,6 +50,7 @@
                 Id = 2,
                 Name = "Blossom Lily",
                 IsActive = true,
+                ShowProps = true,
                 Price = 99.99,
                 ProductProp = new()
                 {
