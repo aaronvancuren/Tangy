@@ -1,6 +1,7 @@
 ﻿
-<div class="bg-light border m-1 col-5">
+<div class="bg-light border m-1 col-5" @onclick="(args)=>ProdSelected(args, prod.Name)">
     <h4 class="text-secondary">Product - @prod.Id</h4>
+    <input type="checkbox" @onchange="FavoriteUpdated" /> Add to Favorite <br /><br />
     Name - @prod.Name<br />
     Show Properties : <input type="checkbox" @bind-value="prod.IsActive" checked="@(prod.IsActive?"checked":null)" />
     @if (@prod.IsActive)
@@ -17,4 +18,20 @@
 @code {
     [Parameter]
     public Demo_Product prod { get; set; }
+
+    [Parameter]
+    public EventCallback<bool> OnFavoriteUpdated { get; set; }
+
+    [Parameter]
+    public EventCallback<string> OnProductSelect { get; set; }
+
+    private async Task FavoriteUpdated(ChangeEventArgs e)
+    {
+        await OnFavoriteUpdated.InvokeAsync((bool)e.Value);
+    }
+
+    private async Task ProdSelected(MouseEventArgs e, string name)
+    {
+        await OnProductSelect.InvokeAsync(name);
+    }
 }
