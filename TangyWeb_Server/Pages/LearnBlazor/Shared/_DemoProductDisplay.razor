@@ -3,6 +3,7 @@
     <h4 class="text-secondary">Product - @prod.Id</h4>
     <input type="checkbox" @onchange="FavoriteUpdated" /> Add to Favorite <br /><br />
     Name - @prod.Name<br />
+    <p>RF from Parent - @FirstFragment @SecondFragment</p>
     Show Properties : <input type="checkbox" @bind-value="prod.IsActive" checked="@(prod.IsActive?"checked":null)" />
     @if (@prod.IsActive)
     {
@@ -24,6 +25,12 @@
 
     [Parameter]
     public EventCallback<string> OnProductSelect { get; set; }
+
+    [Parameter]
+    public RenderFragment FirstFragment { get; set; }
+
+    [Parameter]
+    public RenderFragment SecondFragment { get; set; }
 
     private async Task FavoriteUpdated(ChangeEventArgs e)
     {

@@ -1,13 +1,16 @@
 ﻿@page "/learnblazor/demoproduct"
 
 <h3 class="text-success">DemoProduct</h3>
-<p>Favorites Total : @SelectedFavoriteCount</p> <br /><br />
+<p>Favorites Total : @SelectedFavoriteCount</p>
 <p>Last Selected Product : @LastSelectedProductName</p>
 <div class="border p-2 mt-2" style="background-color:azure">
     <div class="row">
         @foreach (Demo_Product prod in products)
         {
-            <_DemoProductDisplay prod="@prod" OnFavoriteUpdated="FavoriteCountUpdate" OnProductSelect="LastSelectedProdUpdate" />
+            <_DemoProductDisplay prod="@prod" OnFavoriteUpdated="FavoriteCountUpdate" OnProductSelect="LastSelectedProdUpdate">
+                <FirstFragment>#1</FirstFragment>
+                <SecondFragment>#2</SecondFragment>
+            </_DemoProductDisplay>
         }
     </div>
 </div>
