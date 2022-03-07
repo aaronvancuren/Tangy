@@ -5,9 +5,9 @@
 </div>
 
 @code {
-	[CascadingParameter]
+	[CascadingParameter(Name = "message")]
 	public string MessageForGrandChild { get; set; }
 
-	[CascadingParameter]
-	public int LuckyNumberForGrandChild { get; set; }
+	[CascadingParameter(Name = "luckyNumber")]
+	public string LuckyNumberForGrandChild { get; set; }
 }

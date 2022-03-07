@@ -2,8 +2,8 @@
 
 <h3>Parent Child Relation</h3>
 
-<CascadingValue Value="@MessageforGrandChild">
-	<CascadingValue Value="LuckyNumber">
+<CascadingValue Value="@MessageforGrandChild" Name="message">
+	<CascadingValue Value="LuckyNumber" Name="luckyNumber">
 		<_Child OnButtonClick="ShowMessage" Title="This title is passed as a parameter from the Parent component.">
 			<ChildContent>Render fragement from parent!</ChildContent>
 			<DangerChildContent>Danger content from render fragment</DangerChildContent>
@@ -18,7 +18,7 @@
 @code {
 	public string MessageforGrandChild = "This message is from your parent (Parent)";
 
-	public int LuckyNumber = 7;
+	public string LuckyNumber = "7";
 
 	public string messageText = "";
 
