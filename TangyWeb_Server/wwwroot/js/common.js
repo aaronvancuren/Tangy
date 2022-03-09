@@ -20,5 +20,6 @@ window.ShowSwal = (type, message) => {
 			'Error Notification!',
 			message,
 			'error'
+		)
 	}
 }
