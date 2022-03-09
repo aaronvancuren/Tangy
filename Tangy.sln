@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tangy_Business", "Tangy_Bus
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tangy_Common", "Tangy_Common\Tangy_Common.csproj", "{8E476274-24D8-4952-A94B-CFF551B0F43C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tangy_DAO", "Tangy_DAO\Tangy_DAO.csproj", "{E54F6AB3-C700-4EC0-9BE9-A04C1C6CC97B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tangy_Dao", "Tangy_DAO\Tangy_Dao.csproj", "{E54F6AB3-C700-4EC0-9BE9-A04C1C6CC97B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

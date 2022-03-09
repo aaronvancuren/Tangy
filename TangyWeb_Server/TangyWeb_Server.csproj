@@ -7,11 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Tangy_DAO\Tangy_Dao.csproj" />
     <ProjectReference Include="..\Tangy_Models\Tangy_Models.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Data\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.3" />
   </ItemGroup>
 
 </Project>
